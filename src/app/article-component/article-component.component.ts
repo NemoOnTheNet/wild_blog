@@ -9,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ArticleComponentComponent {
 
+  title: string = "je suis une titre";
+  text: string = "je suis une texte maginfique";
+
 }
