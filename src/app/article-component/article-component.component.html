@@ -1,6 +1,16 @@
 <div class="articleContainer">
-  <h1 class="title"> {{title}} </h1>
+  <h1 class="title">{{ article.title }}</h1>
   <p class="text">
-{{text}}
+    {{ article.author }}
   </p>
+
+  <p>{{ article.content }}</p>
+  <img [src]="article.image" alt="" />
+
+  @if (article.isPublished){
+     <p > {{ article.comment}} </p>
+    }
+
+<input type="text" placeholder="Ajouter un commentaire" [(ngModel)]="article.comment">
+  <button (click)="togglePublication()">Publier</button>
 </div>
