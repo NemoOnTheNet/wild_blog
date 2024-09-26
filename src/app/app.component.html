@@ -1,10 +1,18 @@
-@for (article of articles; track $index) { @if (article.isPublished) {
+@for (article of articles; track $index) { @if (article.isPublished ) {
+
 <div class="articles" [ngClass]="{ 'popular-article': article.likes > 100 }">
-  <h2>{{ article.title }}</h2>
+
+  <h2 [ngStyle]="{ 'color': article.likes > 150 ? color : 'black'}">{{ article.title }}</h2>
+
   <h3>{{ article.author }}</h3>
   <p>{{ article.content }}</p>
   <img [src]="article.image" alt="" />
   <p>{{ article.comment }}</p>
   <p>likes : {{ article.likes }}</p>
 </div>
-} }
+
+}}@empty {
+<div class="no-articles">
+  <h2>No articles found</h2>
+</div>
+}

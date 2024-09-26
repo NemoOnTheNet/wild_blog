@@ -3,6 +3,15 @@ import { RouterOutlet } from '@angular/router';
 import { ArticleComponentComponent } from './article-component/article-component.component';
 import { CommonModule } from '@angular/common';
 
+interface Article {
+  title: string;
+  author: string;
+  content: string;
+  image: string;
+  isPublished: boolean;
+  comment: string;
+  likes: number;
+}
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,8 +19,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
+
+
 export class AppComponent {
-  articles = [
+  articles: Article[] = [
     {
       title: 'Angular 16: Les nouveautés',
       author: 'Alice',
@@ -26,7 +38,7 @@ export class AppComponent {
       author: 'Bob',
       content: 'Développer une API REST nécessite...',
       image: 'https://via.placeholder.com/350x150',
-      isPublished: false,
+      isPublished: true,
       comment: '',
       likes: 75
     },
@@ -50,4 +62,5 @@ export class AppComponent {
   ];
 
 
+  color = 'red';
 }
