@@ -1,3 +1,10 @@
-<app-article-component></app-article-component>
-
-<router-outlet />
+@for (article of articles; track $index) { @if (article.isPublished) {
+<div class="articles" [ngClass]="{ 'popular-article': article.likes > 100 }">
+  <h2>{{ article.title }}</h2>
+  <h3>{{ article.author }}</h3>
+  <p>{{ article.content }}</p>
+  <img [src]="article.image" alt="" />
+  <p>{{ article.comment }}</p>
+  <p>likes : {{ article.likes }}</p>
+</div>
+} }
