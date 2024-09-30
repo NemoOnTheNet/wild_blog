@@ -1,5 +1,18 @@
+.homeScetion{
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.articles{
+  width: 350px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
 .popular-article {
-  font-size: 1.5em;
   text-shadow: 2px 2px 5px gray;
   font-weight: bold;
 }
