@@ -1,0 +1,19 @@
+.homeScetion{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.articles{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: whitesmoke;
+}

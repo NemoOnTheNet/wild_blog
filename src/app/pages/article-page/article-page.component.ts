@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { articlesList } from '../../data/data';
-import { Article } from '../../models/Article';
+import { Article } from '../../models/Article.model';
 
 @Component({
   selector: 'app-article-page',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Article } from '../../models/Article';
+import { Article } from '../../models/Article.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { articlesList } from '../../data/data';
