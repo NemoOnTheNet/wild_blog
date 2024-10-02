@@ -1,22 +1,15 @@
-@if(article){
-
+@if (article) {
     <div class="articleContainer">
-      @if (article.isPublished){
-    
-      <h1 class="title">{{ article.title }}</h1>
-      <p class="text">
-        {{ article.author }}
-      </p>
-    
-      <p>{{ article.content }}</p>
-      <img [src]="article.image" alt="" />
-      <p>{{ article.comment }}</p>
-      }
-      <input
-        type="text"
-        placeholder="Ajouter un commentaire"
-        [(ngModel)]="article.comment"
-      />
+        @if (article.isPublished) {
+            <h1 class="title">{{ article.title }}</h1>
+            <p class="text">
+                {{ article.author }}
+            </p>
+
+            <p>{{ article.content }}</p>
+            <img [src]="article.image" alt="" />
+            <p>{{ article.comment }}</p>
+        }
+        <input type="text" placeholder="Ajouter un commentaire" [(ngModel)]="article.comment" />
     </div>
-    }
-    
+}

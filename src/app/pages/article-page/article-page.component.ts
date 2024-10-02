@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { articlesList } from '../../data/data';
@@ -26,6 +26,4 @@ export class ArticlePageComponent {
       return article.id === this.articleId;
     });
   }
-  
-
 }

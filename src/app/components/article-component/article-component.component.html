@@ -1,0 +1,12 @@
+<div class="articles" [ngClass]="{ 'popular-article': article.likes > 100 }">
+    <h2 [ngStyle]="{ color: article.likes > 150 ? { color: 'red' } : { color: 'black' } }">
+        {{ article.title }}
+    </h2>
+
+    <h3>{{ article.author }}</h3>
+    <p>{{ article.content }}</p>
+    <img [src]="article.image" alt={{article.title}} />
+    <p>{{ article.comment }}</p>
+    <p>likes : {{ article.likes }}</p>
+    <a [routerLink]="['/article', article.id]"> aller vers l'article </a>
+</div>
