@@ -5,8 +5,9 @@
 
     <h3>{{ article.author }}</h3>
     <p>{{ article.content }}</p>
-    <img [src]="article.image" alt={{article.title}} />
+    <img [src]="article.image" alt="{{ article.title }}" />
     <p>{{ article.comment }}</p>
     <p>likes : {{ article.likes }}</p>
     <a [routerLink]="['/article', article.id]"> aller vers l'article </a>
+    <button (click)="sendLike()">Like</button>
 </div>

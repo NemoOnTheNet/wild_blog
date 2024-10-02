@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, inject, Input } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Article } from '../../models/Article.model'
 import { RouterLink } from '@angular/router'
 
@@ -12,4 +12,9 @@ import { RouterLink } from '@angular/router'
 })
 export class ArticleComponentComponent {
     @Input() article!: Article
+    @Output() notifyLike: EventEmitter<string> = new EventEmitter<string>()
+
+    sendLike() {
+        this.notifyLike.emit("Liké")
+    }
 }

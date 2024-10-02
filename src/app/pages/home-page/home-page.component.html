@@ -1,7 +1,7 @@
 <section class="homeScetion">
     @for (article of articles; track $index) {
         @if (article.isPublished) {
-            <app-article-component [article]="article" />
+            <app-article-component (notifyLike)="handleNotificationLike($event)" [article]="article" />
         }
     } @empty {
         <div class="no-articles">

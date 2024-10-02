@@ -15,4 +15,13 @@ import { ArticleComponentComponent } from "../../components/article-component/ar
 export class HomePageComponent {
   
   articles = articlesList;
+
+  messageFromArticle: string = '';
+
+  handleNotificationLike(message: string) {
+    this.messageFromArticle = message;
+    alert(message)
+  }
+
+  
 }
