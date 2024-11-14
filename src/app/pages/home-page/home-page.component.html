@@ -1,11 +1,40 @@
 <section class="homeScetion">
-    @for (article of articles; track $index) {
+    @for (article of articles$ | async; track $index) {
         @if (article.isPublished) {
-            <app-article-component (notifyLike)="handleNotificationLike($event)" [article]="article" />
+            <app-article-component
+                (notifyLike)="handleNotificationLike($event)"
+                [article]="article"
+            />
         }
     } @empty {
         <div class="no-articles">
             <h2>No articles found</h2>
         </div>
     }
+<!-- 
+    <app-button
+        (dataEmitFromButton)="dataReceiveFromChild($event)"
+        [name]="name[0]"
+        [backgroundColorButton]="colors[0]"
+    />
+    <app-button
+        (dataEmitFromButton)="dataReceiveFromChild($event)"
+        [name]="name[1]"
+        [backgroundColorButton]="colors[1]"
+    />
+    <app-button
+        (dataEmitFromButton)="dataReceiveFromChild($event)"
+        [name]="name[2]"
+        [backgroundColorButton]="colors[2]"
+    />
+    <app-button
+        (dataEmitFromButton)="dataReceiveFromChild($event)"
+        [name]="name[3]"
+        [backgroundColorButton]="colors[3]"
+    />
+    <app-button
+        (dataEmitFromButton)="dataReceiveFromChild($event)"
+        [name]="name[4]"
+        [backgroundColorButton]="colors[4]"
+    /> -->
 </section>

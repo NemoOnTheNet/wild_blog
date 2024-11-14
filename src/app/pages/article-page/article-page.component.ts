@@ -1,8 +1,9 @@
 import { Component, inject, Input, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { articlesList } from '../../data/data';
 import { Article } from '../../models/Article.model';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-article-page',
@@ -13,6 +14,7 @@ import { Article } from '../../models/Article.model';
 })
 export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
+  http = inject(HttpClient);
 
   articleId!: number;
   article: Article | undefined;
@@ -22,8 +24,13 @@ export class ArticlePageComponent {
       this.articleId = Number(params.get('id'));
     });
 
-    this.article = articlesList.find((article: Article) => {
-      return article.id === this.articleId;
+    this.getArticleById(this.articleId)
+  }
+
+  getArticleById(id: number){
+
+    this.http.get<Article>(`http://localhost:3000/articles/${id}`).subscribe(data => {
+      this.article = data
     });
   }
 }
