@@ -26,7 +26,9 @@ export class HomePageComponent {
     http = inject(HttpClient);
 
     ngOnInit() {
-        this.articles$ = this.http.get<Article[]>('http://localhost:3000/articles');
+        this.articles$ = this.http.get<Article[]>(
+            'http://localhost:3000/articles'
+        );
     }
 
     handleNotificationLike(message: string) {
