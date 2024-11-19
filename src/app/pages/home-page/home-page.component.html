@@ -1,5 +1,5 @@
 <section class="homeScetion">
-    @for (article of articles$ | async; track $index) {
+    @for (article of articles; track $index) {
         @if (article.isPublished) {
             <app-article-component
                 (notifyLike)="handleNotificationLike($event)"
@@ -11,7 +11,7 @@
             <h2>No articles found</h2>
         </div>
     }
-<!-- 
+    <!-- 
     <app-button
         (dataEmitFromButton)="dataReceiveFromChild($event)"
         [name]="name[0]"

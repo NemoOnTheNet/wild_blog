@@ -7,28 +7,23 @@ import { ButtonComponent } from '../../components/button/button.component';
 import { HttpClient } from '@angular/common/http';
 import { Article } from '../../models/Article.model';
 import { Observable } from 'rxjs';
+import { ApiServiceService } from '../../services/api-service.service';
 
 @Component({
     selector: 'app-home-page',
     standalone: true,
-    imports: [
-        CommonModule,
-        RouterLink,
-        ArticlePageComponent,
-        ArticleComponentComponent,
-        ButtonComponent,
-    ],
+    imports: [CommonModule, ArticleComponentComponent],
     templateUrl: './home-page.component.html',
     styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
-    articles$!: Observable<Article[]>;
-    http = inject(HttpClient);
+    apiService = inject(ApiServiceService);
+    articles: Article[] = [];
 
     ngOnInit() {
-        this.articles$ = this.http.get<Article[]>(
-            'http://localhost:3000/articles'
-        );
+        this.apiService.getArticle().subscribe((data) => {
+            this.articles = data;
+        });
     }
 
     handleNotificationLike(message: string) {
@@ -44,9 +39,4 @@ export class HomePageComponent {
     dataReceiveFromChild(data: any) {
         alert(data);
     }
-
-    // getArticle() {
-    //     this.http
-    //         .get<Article[]>('http://localhost:3000/articles');
-    // }
 }
